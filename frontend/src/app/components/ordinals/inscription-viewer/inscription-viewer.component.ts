@@ -30,6 +30,8 @@ export class InscriptionViewerComponent {
 
   public preview?: SafeHtml;
 
+  @Input() showDetails = false;
+
   @Input()
   public set parsedInscription(inscription: ParsedInscription | undefined) {
 

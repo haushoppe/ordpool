@@ -12,17 +12,20 @@
   </ng-container>
 
   <div class="formatedText" *ngIf="formatedText">
-
     <pre class="mb-0"><code [highlight]="formatedText"></code></pre>
-
   </div>
 
-  <div *ngIf="_parsedInscription.getMetaprotocol() as metaprotocol">
+  <div class="mt-2" *ngIf="_parsedInscription.getMetaprotocol() as metaprotocol">
     Metaprotocol: {{ metaprotocol }}
   </div>
 
-  <div *ngIf="_parsedInscription.getMetadata() as metadata">
-    Metadata: {{ metadata }}
+  <div class="mt-2" *ngIf="showDetails && _parsedInscription.getMetadata() as metadata">
+    Metadata:
+    <app-metadata-viewer [data]="metadata" />
+  </div>
+
+  <div *ngIf="showDetails && _parsedInscription.getContentEncoding() as contentEncoding">
+    Content Encoding: {{ contentEncoding }}
   </div>
 
 </ng-container>
